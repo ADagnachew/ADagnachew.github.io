@@ -25,6 +25,10 @@ p{
     font-weight: bold;
     
 }
+p::first-letter{
+    text-transform: capitalize;
+    font-size: xx-large;
+}
 li{
     color: white;
 }
