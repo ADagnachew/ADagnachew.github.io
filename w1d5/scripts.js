@@ -80,20 +80,3 @@ function element3(arr) {
 function product(arr) {
     return arr.reduce((acc, curr) => acc * cur);
 }
-/* runs test to see if expected argument is === to value returned by function2test argument */
-function myFunctionTest(expected, found) {
-    if (JSON.stringify(expected) == JSON.stringify(found)) {
-        return "TEST SUCCEEDED";
-    } else {
-        return "TEST FAILED.  Expected " + expected + " found " + found;
-    }
-}
-
-// the tests goes here
-console.log("Expected output of max2(20,10) is 20  " + myFunctionTest(20, max3(20, 10)));
-console.log("Expected output of max2(100,10) is 100  " + myFunctionTest(100, max3(100, 10)));
-
-console.log("Expected output of max3(5,4,44) is 44  " + myFunctionTest(44, maxOfThree(5, 4, 44)));
-console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(55, maxOfThree(55, 4, 44)));
-
-console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(4, maxOfThree(55, 4, 44)));
