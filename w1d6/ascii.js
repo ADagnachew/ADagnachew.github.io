@@ -38,7 +38,7 @@ window.onload = function () {
 
     start.onclick = function () {
         if (textArea.value === "") {
-
+            alert("Select Animation First!");
         } else {
             isAnimating = true;
             animationcontent = textArea.value.split("=====");
