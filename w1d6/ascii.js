@@ -37,27 +37,32 @@ window.onload = function () {
 
 
     start.onclick = function () {
-        isAnimating = true;
-        animationcontent = textArea.value.split("=====");
+        if (textArea.value === "") {
 
-        // Array.from(document.getElementsByClassName("disable-on-start")).forEach(element => {
-        //     element.disabled=true;
-        // });
-        // Array.from(document.getElementsByClassName("disable-on-stop")).forEach(element => {
-        //     element.disabled=false;
-        // });
+        } else {
+            isAnimating = true;
+            animationcontent = textArea.value.split("=====");
 
-        let disableOnStart = document.getElementsByClassName("disable-on-start");
-        for (let i = 0; i < disableOnStart.length; i++) {
-            disableOnStart[i].disabled = true;
+            // Array.from(document.getElementsByClassName("disable-on-start")).forEach(element => {
+            //     element.disabled=true;
+            // });
+            // Array.from(document.getElementsByClassName("disable-on-stop")).forEach(element => {
+            //     element.disabled=false;
+            // });
+
+            let disableOnStart = document.getElementsByClassName("disable-on-start");
+            for (let i = 0; i < disableOnStart.length; i++) {
+                disableOnStart[i].disabled = true;
+            }
+
+            let disableOnStop = document.getElementById("stop");
+            disableOnStop.disabled = false;
+
+            animate(0);
         }
 
-        let disableOnStop = document.getElementById("stop");
-        disableOnStop.disabled = false;
-
-        animate(0);
     }
-    stop.onclick = function(){
+    stop.onclick = function () {
         isAnimating = false;
         textArea.value = animationcontent.join("=====");
 
@@ -71,11 +76,12 @@ window.onload = function () {
 
     }
 }
-function animate(index){
-    if(isAnimating){
+
+function animate(index) {
+    if (isAnimating) {
         document.getElementById("text-area").value = animationcontent[index];
-        setTimeout(function(){
-            animate((index+1) % animationcontent.length)
-        },isTurbo?50:250);
+        setTimeout(function () {
+            animate((index + 1) % animationcontent.length)
+        }, isTurbo ? 50 : 250);
     }
 }
