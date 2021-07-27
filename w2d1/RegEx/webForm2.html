@@ -106,6 +106,13 @@
             color: skyblue;
             font-weight: bold;
         }
+        select{
+            /* height: 40px; */
+            font-size: 26px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: solid 1px grey;
+        }
         
     </style>
 </head>
@@ -134,7 +141,10 @@
                 <label>Quantity in stock</label>
                 <input type="text" placeholder="0">
                 <label>Supplier:</label>
-                <input type="text" placeholder="Select supplier">
+                <select name="supplier" id="" aria-placeholder="">
+                   <option value="">Select Supplier</option>
+                </select>
+                <!-- <input type="text" placeholder="Select supplier"> -->
                 <label>Date Supplied:</label>
                 <input type="text" placeholder="yyyy-mm-dd">
                 <p>Enter Valid date.</p>
