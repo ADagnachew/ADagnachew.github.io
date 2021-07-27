@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- add mocha css, to show results -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+  <!-- add mocha framework code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+  <script>
+    mocha.setup('bdd'); // minimal setup
+  </script>
+  <!-- add chai -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+  <script>
+    // chai has a lot of stuff, let's make assert global
+    let assert = chai.assert;
+  </script>
+</head>
+
+<body>
+
+  <script src="functions.js"></script>
+
+  <!-- the script with tests (describe, it...) -->
+  <script src="myTest.js"></script>
+
+  <!-- the element with id="mocha" will contain test results -->
+  <div id="mocha"></div>
+
+  <!-- run tests! -->
+  <script>
+    mocha.run();
+  </script>
+ <h5>Look in the Chrome developer console to see the output. CTRL_SHIFT_J <br /> Or on Firefox with CTRL_SHIFT_K</h5>
+ <h2 style="margin-left: 200px;">OR</h2>
+ <h5>All the functions are in a separate JS file linked to this page; can also be found <a href="myTest.js">myTest.js</a>
+ and <a href="functions.js">functions.js</a></h5>
+
+</body>
+
+</html>
