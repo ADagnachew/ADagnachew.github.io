@@ -1,0 +1,108 @@
+===========================
+Q1
+===========================
+const myModule = (function(){
+    var counter = 0;
+    const add = function(){
+        return  counter +=1;
+    }
+    const reset = function(){
+        return counter = 0;
+    }
+    return {
+        adder : add,
+        reseter : reset
+    };
+})();
+console.log(myModule.adder());
+console.log(myModule.adder());
+console.log(myModule.adder());
+console.log(myModule.reseter());
+=================================
+Q2
+=================================
+In the given the code the free variable is counter. which is used by the closure or the inner function 
+And a free variable is a variable which is reffered by a function which is not the parameter or the local 
+variable in that function.
+
+=============================
+Q3
+=============================
+const make_adder = (function(n){
+    let counter = 0;
+     return function add(){
+        return counter += n;
+    }
+});
+const add5 = make_adder(5);
+let add7 = make_adder(7);
+
+add5();
+add5();
+console.log(add5());
+add7();
+console.log(add7());
+
+=====================
+Q4
+=====================
+using module pattern 
+
+====================
+Q5
+====================
+
+var employee = (function (name, age, salary) {
+    const setAge = function (newAge) {
+        ​​​​​age = newAge;
+    }​​​​​​​​;
+    const setSalary = function (newSalary) {
+        ​​​​​​​salary = newSalary;
+    }​​​​​​​​;
+    const setName = function (newName) {
+        name = newName;
+    }​​​​​​​​;
+    const getAge = function () {​​​​​
+        return age;
+    }​​​​​​​​;
+    const getSalary = function () {
+        return salary;
+    }​​​​​​​​;
+    const getName = function () {   ​​​​​​​​
+        return name;
+    }​​​​​​​​;
+    const increaseSalary = function (percentage) {     ​​​​​​​​
+       salary = salary + salary * percentage / 100;
+    }​​​​​​​​;
+    const incrementAge = function () {     ​​​​​​​​
+        Age + 1;
+    }​​​​​​​​;
+    return {
+       ​​​​​​​​
+        getSalary: getSalary,
+        setAge: setAge,
+        setSalary: setSalary,
+        setName: setName,
+        increaseSalary: increaseSalary,
+        incrementAge: incrementAge
+    }​​​​​​​​;
+}​​​​​​​​);
+========================
+Q6
+========================
+
+employee.extension = function(){
+    let address = "";
+    const getAddress = function(){
+        return address;
+    };
+    const setAddress(newAddress){
+        address = newAddress;
+    };
+    return{
+    address: address,
+    getAddress: getAddress,
+    setAddress: setAddress 
+    }
+      
+ }
