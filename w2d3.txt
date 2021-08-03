@@ -105,4 +105,13 @@ employee.extension = function(){
     setAddress: setAddress 
     }
       
- }
+ }.
+
+EMPLOYEE.address = "Default Address";
+EMPLOYEE.setAddress = function(a) {
+    this.address = a;
+};
+EMPLOYEE.getAddress = function() {
+    return this.address;
+};
+
