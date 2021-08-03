@@ -77,7 +77,7 @@ describe("End of month",function(){
     it("checking account with negative balance at the end of month must start with warning",function(){
         let acc=new CheckingAccount("123456",10);
         acc.withdraw(10);
-        assert.equal(true,acc.endOfMonth().startsWith("Warning"));
+        assert.equal(true,acc.endOfMonth().startsWith("low balance Warning"));
     });
     it("Normal Acounts start with nothing",function(){
         let acc=new Account("123457");
