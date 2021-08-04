@@ -1,0 +1,13 @@
+
+#container{
+    border-radius: 50px;
+    padding: auto 50px ;
+    text-align: center;
+    vertical-align: bottom;
+    margin: auto; 
+}
+
+.control{
+    position: fixed;
+    top: 200px;
+}
