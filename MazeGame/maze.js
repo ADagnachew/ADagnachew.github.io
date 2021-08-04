@@ -11,7 +11,8 @@ $(function () {
         if (s === true && count === 0)
             $("#status").text("You win:]")
         else
-            $("#status").text("You lose!")
+            $("#status").text("Sorry,You lose!")
+        s = false;
     });
 
     $("#start").click(function () {
