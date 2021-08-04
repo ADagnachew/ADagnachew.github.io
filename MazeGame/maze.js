@@ -6,6 +6,10 @@ $(function () {
             count = count + 1;
             $('.boundary').not(".example").addClass("youlose");
         }
+        else{
+            count = 0;
+            $(".boundary").removeClass("youlose");
+        }
     });
     $("#end").mouseover(function () {
         if (s && !count)
