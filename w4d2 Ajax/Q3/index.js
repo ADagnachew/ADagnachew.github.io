@@ -6,7 +6,7 @@ const session = require('express-session');
 const app     = express();
 
 app.use(session({
-    secret: 'Najed Hatamleh secret',
+    secret: 'Alehegn Dagnachew',
     resave: false,
     saveUninitialized: true
 }));

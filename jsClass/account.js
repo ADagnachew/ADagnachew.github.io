@@ -1,5 +1,4 @@
 "use strict";
-
 class Account {
     constructor(number) {
         this._number = number; // the account number

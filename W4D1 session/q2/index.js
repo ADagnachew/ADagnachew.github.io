@@ -1,23 +1,11 @@
 const express = require('express');
-const parseurl = require('parseurl')
-const session = require('express-session')
+const cookieParser=require("cookie-parser");
+const path=require("path");
 const app = express();
 
-app.use(session({
-  resave: false, // don't save session if unmodified
-  saveUninitialized: false, // don't create session until something stored
-  secret: 'salt for cookie signing',
-}));
-const path=require("path");
-
 app.use('/result',express.urlencoded({extended:false}));
+app.use(cookieParser());
 
-app.use((req, res, next) => {
-    if(!req.session.views){
-        req.session.views = {};
-    }
-    next();
-});
 app.get('/', (req, res) => {
     const date=new Date();
     const hour=date.getHours();
@@ -39,17 +27,20 @@ app.get('/', (req, res) => {
     res.send(response);
 });
 app.post('/result',(req,res)=>{
-    req.session.views['name'] = req.body.name;
-    req.session.views['age'] = req.body.age;
-    res.redirect('/output');
+    res.cookie("name",req.body.name);
+    res.cookie("age",req.body.age);
+    res.redirect("/output");
 });
 app.get('/output', (req, res) => {
-    let name = req.session.views['name'];
-    let age = req.session.views['age'];
-
-    age = (!age) ? "not mentioned" : age;
-    name = (!name) ? "person" : name;
-    res.send(`Welcome ${name} and your age is: ${age}`);
+    let name = req.cookies.name;
+    let age = req.cookies.age;
+    if (!name) {
+        name = "person";
+    }
+    if(!age){
+        age="unknown";
+    }
+    res.send(`Welcome ${name} with age ${age}`);
 });
 app.use('/css', express.static(path.join(__dirname, 'css')));
-app.listen(3000);
+app.listen(3001);
